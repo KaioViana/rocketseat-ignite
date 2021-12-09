@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production', // importante para velocidade de execução do webpack. Em production há toda um otimização que é feita
-  entry: path.resolve(__dirname, 'src', 'index.jsx'), // arquivo de entrada
+  entry: path.resolve(__dirname, 'src', 'index.tsx'), // arquivo de entrada
   devtool: isDevelopment ? 'eval-source-map' : 'source-map', // para printar um log de erro mas legível
   // arquivo de saída que será gerado com o webpack
   output: {
@@ -15,7 +15,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'] // arquivos que podem ser lidos
+    extensions: ['.js', '.jsx', '.ts', '.tsx'] // arquivos que podem ser lidos
   },
   // configuração para ficar observando alterações nos arquivos e gerar novamente o html 
   devServer: {
@@ -32,7 +32,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -44,9 +44,9 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   }

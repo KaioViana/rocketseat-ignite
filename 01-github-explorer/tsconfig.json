@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // adicona funcionalidade/informa novas tipagens/informa que é uma DOM                                      
+    "jsx": "react-jsx", // permite html dentro do ts                             
+    "moduleResolution": "node",                     
+    "resolveJsonModule": true,                      
+    "allowJs": true,  // informa que vamos utilizar arquivos js ou ts                           
+    "noEmit": true,   // caso executar o build, não emitirá o código do app                               
+    "isolatedModules": true,                        
+    "allowSyntheticDefaultImports": true,      // permite importar json     
+    "esModuleInterop": true,                           
+    "forceConsistentCasingInFileNames": true,          
+    "strict": true, // mode de lidar com erros                                   
+    "skipLibCheck": true                               
+  },
+  "include": ["src"] // onde esta o código
+}
